@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" id="id1" min="200" max="300" required>
+    <button onclick="myfunction()">OK</button>
+    <p id="demo"></p>
+<input type="number" id="id2" max="100">
+    <button onclick="myfunction2()">OK</button>
+    <p id="demo1"></p>
+
+<!-----felhasznalotol 5 szam vizsgaljuk meg hogy negativ vagy pozitiv intervallum -10 +10-->
+
+
+<input type="number" id="szam" min="-10" max="10">
+<button onclick="ujfunkcio()">Ellenorzes</button>
+<p id="valasz"></p>
+
+
+
+
+<script>
+    function myfunction() {
+        const inpObj=document.getElementById("id1");
+        if(!inpObj.checkValidity()) {
+            document.getElementById("demo").innerHTML=inpObj.validationMessage;
+
+    }
+    else{
+        document.getElementById("demo").innerHTML=inpObj.validationMessage;
+    }
+    }
+
+    function myfunction2(){
+        if(document.getElementById("id2").validity.rangeOverflow){
+            document.getElementById("demo1").innerHTML="Value too large";
+
+        }
+        else{
+            document.getElementById("demo1").innerHTML="Value ok";
+        }
+
+
+    }
+
+function ujfunkcio(){
+    for(var i=0;i<5;i++){
+        var tarolo=document.getElementById("szam").value;
+        if(!szam.checkValidity()) {
+            document.getElementById("valasz").innerHTML=szam.validationMessage;
+            continue
+    }
+    else if(szam.checkValidity()) {
+        if(document.getElementById("szam").value>=0){
+            document.getElementById("valasz").innerHTML="Pozitív szám!";
+
+        }
+        else{
+            document.getElementById("valasz").innerHTML="Negatív szám!";
+        }
+    }
+    
+    }
+}
+
+</script>
+
+</body>
+</html>
